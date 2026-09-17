@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build outputs
+dist/
+build/
+*.egg-info/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Electron
+velo_ui/out/
+velo_ui/dist/
+velo_ui/*.exe
+
+# Python
+velo_core/.venv/
+velo_core/*.egg-info/
+
+# Temporary
+*.tmp
+*.temp
