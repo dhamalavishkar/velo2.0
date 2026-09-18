@@ -6,9 +6,9 @@ let mainWindow: BrowserWindow | null = null;
 let isClickThrough = true;
 
 function createWindow() {
-  const { width: screenWidth, height: screenHeight } = screen.getPrimaryDisplay().workAreaSize;
-  const windowWidth = 400;
-  const windowHeight = 120;
+  const { width: screenWidth } = screen.getPrimaryDisplay().workAreaSize;
+  const windowWidth = 460;   // slightly wider than max notch width (420) for shadows
+  const windowHeight = 220;  // tall enough for permission state (160h) + glow effects
 
   mainWindow = new BrowserWindow({
     width: windowWidth,
@@ -32,9 +32,9 @@ function createWindow() {
 
   setClickThrough(true);
 
-  if (isDev) {
+  if (isDev()) {
     mainWindow.loadURL('http://localhost:5173');
-    mainWindow.webContents.openDevTools({ mode: 'detach' });
+    // Uncomment to open devtools: mainWindow.webContents.openDevTools({ mode: 'detach' });
   } else {
     mainWindow.loadFile(join(__dirname, '../dist/index.html'));
   }

@@ -60,6 +60,26 @@ export interface ActivationEvent {
   phrase: string;
 }
 
+export interface WakeWordDetectedEvent {
+  type: 'wake_word_detected';
+}
+
+export interface AudioChunkEvent {
+  type: 'audio_chunk';
+  data: string;
+}
+
+export interface PermissionResponseEvent {
+  type: 'permission_response';
+  request_id: string;
+  allowed: boolean;
+}
+
+export interface UserInputEvent {
+  type: 'user_input';
+  text: string;
+}
+
 export type WSMessage =
   | NotchEvent
   | TranscriptionEvent
@@ -68,7 +88,11 @@ export type WSMessage =
   | ToolResultEvent
   | ErrorEvent
   | NotificationEvent
-  | ActivationEvent;
+  | ActivationEvent
+  | WakeWordDetectedEvent
+  | AudioChunkEvent
+  | PermissionResponseEvent
+  | UserInputEvent;
 
 export interface PermissionRequest {
   id: string;
